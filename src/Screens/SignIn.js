@@ -21,7 +21,7 @@ const SignIn = () => {
 
     const handleSubmit = () => {
 
-        axios.post('https://keeperly.herokuapp.com/signin', { username, password }, {
+        axios.post('/signin', { username, password }, {
             headers: { 'Content-Type': 'application/json' }
         }).then(response => {
 

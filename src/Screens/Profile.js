@@ -29,7 +29,7 @@ const Profile = () => {
 
             const { _id } = user;
 
-            axios.put('https://keeperly.herokuapp.com/user', { _id, name, password }, {
+            axios.put('/user', { _id, name, password }, {
                 headers: { 'Content-Type': 'application/json' }
             }).then(response => {
 
@@ -51,7 +51,7 @@ const Profile = () => {
 
         if (message === "Update successfully") {
 
-            history.push('/');
+            history.push('/profile');
         }
 
         setMessage(null);
@@ -66,38 +66,36 @@ const Profile = () => {
                 <Message message={message} handleClick={handleMessage} />
             :
                 <div>
-                    <button className="profile-button-back" onClick={() => history.push('/')}> Back </button>
                     <div className="profile">
-                        <div className="profile-box">
-                            <label className="profile-label">Username</label>
-                            <input
-                                className="profile-input"
-                                type="text"
-                                value={(user !== null) ? user.username : ""}
-                                readOnly
-                            />
-                            <label className="profile-label">Name</label>
-                            <input
-                                className="profile-input"
-                                type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                            <label className="profile-label">Password</label>
-                            <input
-                                className="profile-input"
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                            <label className="profile-label">Confirm Password</label>
-                            <input
-                                className="profile-input"
-                                type="password"
-                                value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                            />
-                        </div>
+                        <button className="profile-button-back" onClick={() => history.push('/')}> Back </button>
+                        <label className="profile-label">Username</label>
+                        <input
+                            className="profile-input"
+                            type="text"
+                            value={(user !== null) ? user.username : ""}
+                            readOnly
+                        />
+                        <label className="profile-label">Name</label>
+                        <input
+                            className="profile-input"
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <label className="profile-label">Password</label>
+                        <input
+                            className="profile-input"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <label className="profile-label">Confirm Password</label>
+                        <input
+                            className="profile-input"
+                            type="password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
                         <button className="profile-button-save" onClick={updateProfile}>Save</button>
                     </div>
                 </div>

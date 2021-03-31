@@ -29,7 +29,7 @@ const SignUp = () => {
 
         if(newUser.password === newUser.confirmPassword) {
 
-            axios.post('https://keeperly.herokuapp.com/user', newUser, {
+            axios.post('/user', newUser, {
                 headers: { 'Content-Type': 'application/json' }
             }).then(response => {
 
@@ -67,7 +67,6 @@ const SignUp = () => {
             <Message message={message} handleClick={handleClick} />
         :
             <div className="form-box">
-                <div className="form-box2">
                     <input
                         className="form-input"
                         type="text"
@@ -100,7 +99,6 @@ const SignUp = () => {
                         onChange={e => setNewUser(user => ({ ...user, confirmPassword: e.target.value }))}
                         required
                     />
-                </div>
                 <button className="form-button" onClick={createUser}>SIGN UP</button>
             </div>
         }
