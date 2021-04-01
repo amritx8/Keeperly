@@ -29,7 +29,7 @@ const SignUp = () => {
 
         if(newUser.password === newUser.confirmPassword) {
 
-            axios.post('/user', newUser, {
+            axios.post('https://keeperly.herokuapp.com/user', newUser, {
                 headers: { 'Content-Type': 'application/json' }
             }).then(response => {
 

@@ -39,7 +39,7 @@ const Home = () => {
                 labels: labels
             };
 
-            axios.put('/user', data, {
+            axios.put('https://keeperly.herokuapp.com/user', data, {
                 headers: { 'Content-Type': 'application/json' }
             }).then(response => {
 

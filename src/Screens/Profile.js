@@ -29,7 +29,7 @@ const Profile = () => {
 
             const { _id } = user;
 
-            axios.put('/user', { _id, name, password }, {
+            axios.put('https://keeperly.herokuapp.com/user', { _id, name, password }, {
                 headers: { 'Content-Type': 'application/json' }
             }).then(response => {
 
